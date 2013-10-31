@@ -1,0 +1,134 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<div class="container"><!--start container-->
+
+<div id="sidebar"><a id="sidebar-toggle" href="#" data-toggle="#sidebar"> <span class="bar">&nbsp;</span> <span class="bar">&nbsp;</span> <span class="bar">&nbsp;</span> </a>
+
+<ul>
+            <li><a href="http://www.lethiswordrun.com/pray" style="text-indent:-20px;">PRAY!</a></li>
+            <li><a href="http://www.lethiswordrun.com/give">GIVE!</a></li>
+            <li><a href="http://www.lethiswordrun.com/go">GO!</a></li>
+			<li class="participte">Ways to participate</li>
+            <li><a class="gray" href="http://www.lethiswordrun.com/personal"><img src="<?php echo $this->getSkinUrl('images/icons/personal.png') ?>" alt="" /> Personal Brochure Distribution</a></li>
+			<li><a class="gray" href="http://www.lethiswordrun.com/follow-up"><img src="<?php echo $this->getSkinUrl('images/icons/follow.png') ?>" alt="" /> Follow-up</a></li>
+            <li><a class="gray" href="http://www.lethiswordrun.com/college-campus"><img src="<?php echo $this->getSkinUrl('images/icons/campus.png') ?>" alt="" /> College Campus</a></li>
+            <li><a class="gray" href="http://www.lethiswordrun.com/direct-distribution"><img src="<?php echo $this->getSkinUrl('images/icons/direct.png') ?>" alt="" /> Direct Distribution</a></li>
+            <li><a class="gray" href="http://www.lethiswordrun.com/military"><img src="<?php echo $this->getSkinUrl('images/icons/military.png') ?>" alt="" /> Military</a></li>
+            <li><a class="gray" href="http://www.lethiswordrun.com/mass-mailing"><img src="<?php echo $this->getSkinUrl('images/icons/mass.png') ?>" alt="" /> Mass Mailing</a></li>
+            <li><a class="gray" href="http://www.lethiswordrun.com/seminars"><img src="<?php echo $this->getSkinUrl('images/icons/seminars.png') ?>" alt="" /> Seminars</a></li>
+            <li><a class="gray"  style="border-bottom:3px solid #ddd!important;" href="http://www.lethiswordrun.com/public-access-tv"><img src="<?php echo $this->getSkinUrl('images/icons/public.png') ?>" alt="" /> Public Access TV</a></li>
+			<li><a style="text-align:center!important;" href="http://www.lethiswordrun.com/">Home</a></li>
+			<!--<li><a style="text-align:center!important;" href="http://www.ignisitsolutions.com/projects/magento/lethiswordrun">Materials</a></li>-->
+			<li><a style="text-align:center!important;" href="http://www.lethiswordrun.com/faq/">FAQ</a></li>
+			<li><a style="text-align:center!important;" href="http://www.lethiswordrun.com/contactus/">Contact Us</a></li>
+        </ul>
+</div>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col2-left-layout">
+            <div class="main">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="col-main">
+				 
+                    <?php echo $this->getChildHtml('global_messages') ?>
+				
+					<div id="top_spacer"><img src="http://www.lethiswordrun.com/wp-content/themes/lhwr/images/blank.gif" alt="" border="0" /></div>
+					<div class="quick-access">
+					 <?php echo $this->getLayout()->getBlock('top.links')->toHtml()?> 
+					 </div>
+					 <?php
+$obj = new Mage_Catalog_Block_Navigation();
+$store_cats = $obj->getStoreCategories();
+$current_cat    = $obj->getCurrentCategory();
+$current_cat    = (is_object($current_cat) ? $current_cat->getName() : ''); ?>
+<div id="top_cat">
+<?php 
+    foreach ($store_cats as $cat) {
+    if ($cat->getName() == $current_cat) {
+        echo '<div id="top_cat"><li class="current"><a href="'.$obj->getCategoryUrl($cat).'">'.$cat->getName()."</a>\n<ul>\n";
+        foreach ($obj->getCurrentChildCategories() as $subcat) {
+            echo '<li><a href="'.$obj->getCategoryUrl($subcat).'">'.$subcat->getName()."</a></li>\n";
+        }
+        echo "</ul>\n</li></div>\n";
+    } else {
+        echo '<li><a href="'.$obj->getCategoryUrl($cat).'">'.$cat->getName()."</a></li>\n";
+    }
+}
+?>
+
+     </div>              
+	 
+	 <div class="mob_cat">
+	 <select id="category" name="category" onchange="window.location.href = this.value">
+	  <?php 
+    foreach ($store_cats as $cat) {
+    if ($cat->getName() == $current_cat) {
+        echo '<div id="top_cat"><option class="current"><a href="'.$obj->getCategoryUrl($cat).'">'.$cat->getName()."</a>\n \n";
+        foreach ($obj->getCurrentChildCategories() as $subcat) {
+            echo '<option><a href="'.$obj->getCategoryUrl($subcat).'">'.$subcat->getName()."</a></option>\n";
+        }
+        echo "\n</option></div>\n";
+    } else {
+        echo '<option value="'.$obj->getCategoryUrl($cat).'"><a href="'.$obj->getCategoryUrl($cat).'">'.$cat->getName()."</a></option>\n";
+    }
+}
+?>
+</select>
+	 </div>
+	  <?php echo $this->getChildHtml('content') ?>
+                </div>
+                <div class="col-left sidebar">
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_sidebar')->toHtml() ?>
+				<?php //echo $this->getChildHtml('left') ?></div>
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+
+</div>
+
+<!--end container-->
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div class="footer-container">
+    <div class="footer">
+        <div class="nav_row"><a class="footer" href="http://www.lethiswordrun.com/about/">About BFA</a> | <a class="footer" href="http://www.lethiswordrun.com/orders">Materials</a> | <a class="footer" href="http://www.lethiswordrun.com/media/">Video</a> | <a class="footer" href="http://www.lethiswordrun.com/forum/">Forum</a> | <a class="footer" href="http://www.lethiswordrun.com/faq/">FAQ</a></div>
+<div class="nav_row"><a class="footer" href="http://www.lethiswordrun.com/pray/">Pray</a> | <a class="footer" href="http://www.lethiswordrun.com/give/">Give</a> | <a class="footer" href="http://www.lethiswordrun.com/go/">Go</a> | <a class="footer" href="http://www.lethiswordrun.com/go/">Ways to Participate</a> | <a class="footer" href="http://www.lethiswordrun.com/contactus/">Contact Us</a> | <a class="footer" href="http://www.lethiswordrun.com/privacy-policy/">Privacy Policy</a> | <a class="footer" href="http://www.lethiswordrun.com/terms-of-use/">Terms of Use</a> </div><ul class="links">
+                        <li class="first" ><a href="http://www.ignisitsolutions.com/projects/magento/lethiswordrun/catalog/seo_sitemap/category/?___SID=U" title="Site Map" >Site Map</a></li>
+                                <li ><a href="http://www.ignisitsolutions.com/projects/magento/lethiswordrun/catalogsearch/term/popular/?___SID=U" title="Search Terms" >Search Terms</a></li>
+                                <li ><a href="http://www.ignisitsolutions.com/projects/magento/lethiswordrun/catalogsearch/advanced/?___SID=U" title="Advanced Search" >Advanced Search</a></li>
+                                                                <li class=" last" ><a href="http://www.ignisitsolutions.com/projects/magento/lethiswordrun/contacts/?___SID=U" title="Contact Us" >Contact Us</a></li>
+            </ul>
+        <p class="bugs">Help Us to Keep Magento Healthy - <a href="http://www.magentocommerce.com/bug-tracking" onclick="this.target='_blank'"><strong>Report All Bugs</strong></a> (ver. 1.8.0.0)</p>
+        <address>Copyright  &copy; 2013 Bibles for America, Inc. All Rights Reserved.</address>
+    </div>
+</div>
