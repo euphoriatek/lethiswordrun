@@ -1,4 +1,4 @@
-.font-awesome{font-family:FontAwesome;font-weight:normal;font-style:normal;}
+.font-awesome{font-family:FontAwesome;font-weight:normal;font-style:normal;} 
 .accessible-hide{position:absolute !important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px, 1px, 1px, 1px);}
 .hidden{display:none !important;visibility:hidden;}
 .inline-block{display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;}
