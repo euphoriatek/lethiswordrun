@@ -21,6 +21,6 @@ form,button,input,select,textarea,label{font-size:16px;font-size:1rem;line-heigh
 dl dd{margin:0 0 1.125em;}
 dt{margin-bottom:0.5625em;}
 a,a:visited{color:#FE8E07;}
-a:hover{color:#fff;}
+a:hover{color:#06F;}
 ::selection{background:#ff0099;color:#ffffff;}
 ::-moz-selection{background:#ff0099;color:#ffffff;}

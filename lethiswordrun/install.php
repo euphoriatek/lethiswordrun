@@ -25,7 +25,7 @@
  */
 
 
-/** 
+/**
  * There are two modes to run this script:
  *
  * 1. Dump available locale options (currencies, locales, timezones) and exit

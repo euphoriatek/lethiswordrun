@@ -26,7 +26,7 @@
 ?>
 <?php /* @var $this Mage_Catalog_Block_Product_View_Abstract */?>
 <?php $_product = $this->getProduct() ?>
-
+<div class="price-box-bundle">
 <?php if ($this->displayProductStockStatus()): ?>
     <?php if ($_product->isAvailable()): ?>
         <p class="availability in-stock"><?php echo $this->__('Availability:') ?> <span><?php echo $this->__('In stock') ?></span></p>
@@ -34,5 +34,39 @@
         <p class="availability out-of-stock"><?php echo $this->__('Availability:') ?> <span><?php echo $this->__('Out of stock') ?></span></p>
     <?php endif; ?>
 <?php endif; ?>
+
 <?php echo $this->getChildHtml('product_type_data_extra') ?>
 <?php echo $this->getPriceHtml($_product) ?>
+</div>
+<style>
+.price-box-bundle
+{
+  clear: both;
+  float: left;
+  margin-bottom: 35px;
+}
+.availability-only
+{ 
+  float: left;
+  margin-left: 10px;
+  margin-top: 4px;
+  font-size: 0.85rem;
+}
+.add-to-box
+{
+   clear: both;
+   margin-top: 15px;
+}
+.add-to-cart
+{
+ text-align: center;
+}
+.add-to-cart label
+{
+  display: inline;
+}
+#qty
+{
+ margin-bottom:0px;
+}
+</style>

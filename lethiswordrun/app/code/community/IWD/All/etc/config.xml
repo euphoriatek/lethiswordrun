@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<IWD_All>
+			<version>1.0.0</version>
+		</IWD_All>
+	</modules>
+	<global>
+		<helpers>
+            <iwdcore>
+                <class>IWD_All_Helper</class>
+            </iwdcore>
+        </helpers>
+	</global>
+</config>

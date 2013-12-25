@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<iwdcore translate="title" module="iwdcore">
+			<title>IWD Extensions</title>
+			<sort_order>110</sort_order>
+		</iwdcore>
+	</menu>
+	
+	
+	<acl>
+        <resources>
+            <admin>
+                <children>
+                    <iwdcore translate="title" module="iwdcore">
+						<title>IWD Extensions</title>
+						<sort_order>10</sort_order>                                                  
+                    </iwdcore>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+	
+</config>

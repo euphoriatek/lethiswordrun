@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<iwd translate="label" module="iwdcore">
+			<label>IWD</label>
+			<sort_order>210</sort_order>
+		</iwd>
+	</tabs>
+</config>

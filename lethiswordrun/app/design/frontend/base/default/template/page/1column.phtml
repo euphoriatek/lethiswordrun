@@ -35,8 +35,86 @@
 <?php echo $this->getChildHtml('head') ?>
 </head>
 <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+
+
 <div class="container"><!--start container-->
 
+<?php if(Mage::registry('current_product')) { ?>
+<style>
+#top_cat li {
+    border-right: 1px solid;
+    float: left;
+    font-size: 0.83rem;
+    line-height: 10px;
+    list-style: none outside none;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+	margin-left: 0 !important;
+}
+.product-name { text-align:center; }
+</style>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col1-layout">
+            <div class="main" style="width:100%;">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+				<div class="quick-access" style="margin-top: 10px;"> <?php echo $this->getLayout()->getBlock('top.links')->toHtml()?>  </div>
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+					
+					 <?php
+$obj = new Mage_Catalog_Block_Navigation();
+$store_cats = $obj->getStoreCategories();
+$current_cat    = $obj->getCurrentCategory();
+$current_cat    = (is_object($current_cat) ? $current_cat->getName() : ''); ?>
+<div id="top_cat"> <!--start top_cat-->
+<?php 
+    foreach ($store_cats as $cat) {
+    if ($cat->getName() == $current_cat) {
+        echo '<div id="top_cat"><li class="current"><a href="'.$obj->getCategoryUrl($cat).'">'.$cat->getName()."</a>\n<ul>\n";
+        foreach ($obj->getCurrentChildCategories() as $subcat) {
+            echo '<li><a href="'.$obj->getCategoryUrl($subcat).'">'.$subcat->getName()."</a></li>\n";
+        }
+        echo "</ul>\n</li></div>\n";
+    } else {
+        echo '<li><a href="'.$obj->getCategoryUrl($cat).'">'.$cat->getName()."</a></li>\n";
+    }
+}
+?>
+
+
+     </div>  <!--end top_cat-->            
+	 
+	 <div class="mob_cat"> <!--start mob_cat-->
+	 <select id="category" name="category" onchange="window.location.href = this.value">
+	  <?php 
+    foreach ($store_cats as $cat) {
+    if ($cat->getName() == $current_cat) {
+        echo '<div id="top_cat"><option class="current"><a href="'.$obj->getCategoryUrl($cat).'">'.$cat->getName()."</a>\n \n";
+        foreach ($obj->getCurrentChildCategories() as $subcat) {
+            echo '<option><a href="'.$obj->getCategoryUrl($subcat).'">'.$subcat->getName()."</a></option>\n";
+        }
+        echo "\n</option></div>\n";
+    } else {
+        echo '<option value="'.$obj->getCategoryUrl($cat).'"><a href="'.$obj->getCategoryUrl($cat).'">'.$cat->getName()."</a></option>\n";
+    }
+}
+?>
+</select>
+	 </div><!--end mob_cat-->
+                    <?php echo $this->getChildHtml('content') ?>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php } else { ?> 
+ 
 <div id="sidebar"><a id="sidebar-toggle" href="#" data-toggle="#sidebar"> <span class="bar">&nbsp;</span> <span class="bar">&nbsp;</span> <span class="bar">&nbsp;</span> </a>
 
 <ul>
@@ -58,6 +136,7 @@
 			<li><a style="text-align:center!important;" href="http://www.lethiswordrun.com/contactus/">Contact Us</a></li>
         </ul>
 </div> <!--end sidebar-->
+
 <?php echo $this->getChildHtml('after_body_start') ?>
 <div class="wrapper"> <!--start wrapper-->
     <?php echo $this->getChildHtml('global_notices') ?>
@@ -89,6 +168,7 @@ $current_cat    = (is_object($current_cat) ? $current_cat->getName() : ''); ?>
     }
 }
 ?>
+
 
      </div>  <!--end top_cat-->            
 	 
@@ -125,6 +205,7 @@ $current_cat    = (is_object($current_cat) ? $current_cat->getName() : ''); ?>
         <?php echo $this->getChildHtml('before_body_end') ?>
     </div>
 </div><!--end wrapper-->
+<?php } ?>
 <?php echo $this->getAbsoluteFooter() ?>
 </div>
 <!--end container-->

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Moogento_Pickpack>
+			<version>0.1.0</version>
+		</Moogento_Pickpack>
+	</modules>
+<default>
+	<pickpack_options>
+		<general>
+			<pickpack_tickbox>pickpack</pickpack_tickbox>
+			<background_color_subtitles>#5BA638</background_color_subtitles>
+			<font_color_subtitles>#222222</font_color_subtitles>
+			<font_family_subtitles>helvetica</font_family_subtitles>
+			<font_style_subtitles>regular</font_style_subtitles>
+			<font_size_subtitles>15</font_size_subtitles>
+			<font_color_body>Black</font_color_body>
+			<font_family_body>helvetica</font_family_body>
+			<font_style_body>regular</font_style_body>
+			<font_size_body>10</font_size_body>
+			<font_color_message>#222222</font_color_message>
+			<font_family_message>helvetica</font_family_message>
+			<font_style_message>italic</font_style_message>
+			<font_size_message>12</font_size_message>
+			<background_color_message>#5BA638</background_color_message>
+			<font_color_gift_message>#222222</font_color_gift_message>
+			<font_family_gift_message>helvetica</font_family_gift_message>
+			<font_style_gift_message>italic</font_style_gift_message>
+			<font_size_gift_message>12</font_size_gift_message>
+			<background_color_gift_message>#5BA638</background_color_gift_message>
+		</general>
+		<messages>
+			<pickpack_count>1</pickpack_count>
+			<pickpack_packprint>1</pickpack_packprint>
+			<pickpack_currency>USD</pickpack_currency>
+		</messages>
+		<picks>
+			<pickpack_shipmethod>1</pickpack_shipmethod>
+		</picks>
+		<wonder>
+			<prices_yn>0</prices_yn>
+			<pricesY_productX>40</pricesY_productX>
+			<pricesY_skuX>230</pricesY_skuX>
+			<pricesY_qty_priceX>410</pricesY_qty_priceX>
+			<pricesY_item_priceX>460</pricesY_item_priceX> 
+			<pricesY_priceX>520</pricesY_priceX>
+			<pricesY_shelfX>350</pricesY_shelfX>
+			<pricesY_shelf2X>370</pricesY_shelf2X>
+			<pricesN_productX>80</pricesN_productX>
+			<pricesN_skuX>300</pricesN_skuX>
+			<pricesN_qty_priceX>40</pricesN_qty_priceX>
+			<pricesN_shelfX>434</pricesN_shelfX>
+			<pricesN_shelf2X>454</pricesN_shelf2X>
+		</wonder>
+	</pickpack_options>
+</default>
+	<global>
+
+		<blocks>
+			<adminhtml>
+				<rewrite>
+					<sales_order_grid>Moogento_Pickpack_Block_Sales_Order_Grid</sales_order_grid>
+                    <sales_shipment_grid>Moogento_Pickpack_Block_Sales_Shipment_Grid</sales_shipment_grid>
+				</rewrite>                			
+			</adminhtml>
+		</blocks>
+
+		<blocks>
+		    <pickpack>
+				<class>Moogento_Pickpack_Block</class>
+			</pickpack>
+		</blocks>			
+
+		<models>
+			<pickpack>
+				<class>Moogento_Pickpack_Model</class>
+			</pickpack>
+		</models>
+		
+		<helpers>
+			<pickpack>
+				<class>Moogento_Pickpack_Helper</class>
+			</pickpack>
+		</helpers>
+		
+		 <pdf>     
+		 	<invoices>
+                <default>sales/order_pdf_items_invoices_default</default>
+                <grouped>sales/order_pdf_items_invoices_grouped</grouped>
+            </invoices>                               
+        </pdf>
+
+	</global>
+
+	<admin>
+		<routers>
+			<pickpack>
+				<use>admin</use>
+				<args>
+					<module>Moogento_Pickpack</module>
+					<frontName>pickpack</frontName>
+				</args>
+			</pickpack>
+		</routers>
+	</admin>		
+</config>
